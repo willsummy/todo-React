@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+// can now use the useState() function
 
+// default
 export default function Form(props) {
+
+    const [name, setName] = useState('');
+    // creates a name variable with initial state of 'Use hooks!'
+    // creating a setter for this state variable that can update it
+    // this will later be used for the creation of a new task
+
+    function handleSubmit(e) {
+        e.preventDefault(); // prevents standard form submission
+        if (name.length > 0) {
+            props.addTask(name);
+            setName(""); // clears input
+        } else alert("Please enter a task.")
+
+    }
+
+    function handleChange(e) {
+        setName(e.target.value);
+    }
+
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
-            What needs to be done?
+            {props.label}
           </label>
         </h2>
         <input
