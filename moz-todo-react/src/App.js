@@ -1,20 +1,33 @@
 // import React from JS
-import React from 'react';
+import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 import Todo from "./components/Todo";
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
 
-/*
-{curly braces}  mean variable in JSX
-props are comparable to HTML attributes
-Reach components have props inside component calls
-same syntax prop="value"
-props are read only, descending dataflow
-parent to child
-*/
 
+
+
+
+// default
 function App(props) {
+
+  // grabbing the state
+  const [tasks, setTasks] = useState(props.tasks);
+  // props.tasks is being set to state via tasks
+
+  // functions
+  function addTask(name) {
+    const newTask = {
+      id: "todo-" + nanoid(), name: name, completed: false
+    };
+    setTasks([...tasks, newTask]);
+    // providing set task with existing tasks array
+    // and the newTask to append to that array
+  }
+
+
 
   // componentizing task list
   const taskList = props.tasks.map(task => (
