@@ -36,11 +36,19 @@ export default function Form(props) {
           className="input input__lg"
           name="text"
           autoComplete="off"
+
+          //using the sate variable name
+          value={name}
+
+          // event handler
+          onChange={handleChange} // these do not need () callers
         />
         <button type="submit" className="btn btn__primary btn__lg">
-          Add
+          {props.button}
         </button>
       </form>
     );
 
 }
+
+
