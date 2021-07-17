@@ -30,17 +30,20 @@ function App(props) {
 
 
   // componentizing task list
-  const taskList = props.tasks.map(task => (
+  const taskList = tasks.map(task => (
     <Todo
       id={task.id}
       name={task.name}
       completed={task.completed}
       key={task.id} // key  must be unique for ordering, so we can use id
+      toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
     />
   ));
 
   const formList = props.forms.map(form => (
     <Form
+      addTask={addTask}
       label={form.label}
       button={form.button}
     />
