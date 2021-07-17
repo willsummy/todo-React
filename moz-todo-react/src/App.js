@@ -57,6 +57,23 @@ function App(props) {
     />
   ));
 
+  function toggleTaskCompleted(id) {
+    const updatedTasks = tasks.map(task => {
+      if (id === task.id) {
+        // this spread grabs the object key value pairs
+        // then inverts its completed prop value
+        return {...task, completed: !task.completed}
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  }
+
+  function deleteTask(id) {
+    const updatedTasks = tasks.filter( task => id !== task.id);
+    setTasks(updatedTasks);
+  }
+
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`
 
