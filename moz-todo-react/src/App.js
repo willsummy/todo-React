@@ -1,6 +1,10 @@
 // import React from JS
 import React from 'react';
 
+import Todo from "./components/Todo";
+import Form from './components/Form';
+import FilterButton from './components/FilterButton';
+
 /*
 {curly braces}  mean variable in JSX
 props are comparable to HTML attributes
