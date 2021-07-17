@@ -1,12 +1,6 @@
 // import React from JS
 import React from 'react';
 
-// import local svg
-import logo from './logo.svg';
-
-// import local css file
-import './App.css';
-
 /*
 {curly braces}  mean variable in JSX
 props are comparable to HTML attributes
